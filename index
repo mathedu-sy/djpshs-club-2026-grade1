@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 대전생활과학고 2학년 동아리 신청</title>
+    <title>2026 대전생활과학고 1학년 동아리 신청</title>
     <style>
         body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; background-color: #f0f2f5; color: #333; max-width: 500px; margin: 0 auto; }
         .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
@@ -39,11 +39,11 @@
 <body>
 
     <div id="login-section" class="card">
-        <h2><span class="grade-badge">2026학년도</span> 2학년 동아리 신청</h2>
+        <h2><span class="grade-badge">2026학년도</span> 1학년 동아리 신청</h2>
         <span class="sub-title">본인의 학번과 이름을 정확히 입력해 주세요.</span>
         <div id="time-notice" class="timer-info" onclick="devMode()">서버 시간 확인 중...</div>
         <div>
-            <label><strong>학번</strong> (예: 2101)</label>
+            <label><strong>학번</strong> (예: 1101)</label>
             <!-- 숫자만 입력 가능하도록 설정 -->
             <input type="text" id="studentId" placeholder="4자리 학번 입력" inputmode="numeric" oninput="vId(this)">
         </div>
@@ -56,7 +56,7 @@
     </div>
 
     <div id="club-section" class="card hidden">
-        <h2>2026학년도 동아리 선택(2학년)</h2>
+        <h2>2026학년도 동아리 선택(1학년)</h2>
         <div id="my-status" class="status-box hidden"></div>
         <div class="tab-container">
             <button id="tab-general" class="tab-btn active" onclick="switchTab('general')">일반동아리</button>
@@ -73,12 +73,12 @@
 
     <script>
         // 본인의 구글 앱스 스크립트 배포 URL을 여기에 넣으세요.
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzG7CYJSqBLd9E3FrD99b8Lr-HN66N7iMBIe5mum9u8IBDU7grCpfBhK64y8vZWkqSchA/exec";
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxlXreXZJFHZdzaf1oUTp0Sel3xSe5t28bFV2EgBA7ykjXJqQQzdBmjdkkqwPwuUVipdg/exec";
 
         const CONFIG = {
             startTime: new Date("2026-03-09T10:00:00+09:00"), 
             endTime: new Date("2026-03-16T16:30:00+09:00"),
-            targetGrade: "2"
+            targetGrade: "1"
         };
 
         const clubs = [
@@ -194,7 +194,7 @@
             const idInput = document.getElementById('studentId').value.trim();
             const nameInput = document.getElementById('studentName').value.replace(/\s/g, '');
             if (idInput.length !== 4) { alert("학번 4자리를 정확히 입력해주세요."); return; }
-            if (idInput.substring(0, 1) !== CONFIG.targetGrade) { alert("2학년 학생만 신청이 가능합니다."); return; }
+            if (idInput.substring(0, 1) !== CONFIG.targetGrade) { alert("1학년 학생만 신청이 가능합니다."); return; }
             if (nameInput.length < 2) { alert("이름을 정확히 입력해주세요."); return; }
             studentInfo.id = idInput;
             studentInfo.name = nameInput;
@@ -229,7 +229,7 @@
                         `;
                     } else {
                         statusBox.innerHTML = `
-                            <div>👋 <b>${studentInfo.name}(${studentInfo.id}</b>님, <b>[${myClub}]</b> 신청 완료</div>
+                            <div>👋 <b>${studentInfo.name}(${studentInfo.id})</b>님, <b>[${myClub}]</b> 신청 완료</div>
                             <button class="cancel-btn" onclick="cancelApply()">신청 취소하기</button>
                         `;
                     }
